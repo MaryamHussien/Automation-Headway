@@ -46,6 +46,17 @@ public class PageObjectModelTests {
               .ClickOnContinueButton();
     }
 
+    @Test
+    @Description("Navigating to signup page")
+    @Severity(SeverityLevel.MINOR)
+    public void OpenSignupPage(){
+        new HomePage(driver)
+                .NavigateToHomepage();
+        new MainMenu(driver)
+                .ClickOnLoginOrSignupButton();
+    }
+
+
     @BeforeClass
     public void BeforeClass() {
         framework.engine.PropertiesReader.loadProperties();
