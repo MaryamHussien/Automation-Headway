@@ -29,13 +29,13 @@ jobs:
 
       - name: Execute Tests
         #continue-on-error: true
-        run: mvn -Dtest = "Demos.**" test
+        run: mvn -Dtest="${{ github.event.inputs.testsPath }}" test
 
       - name: Publish Report
         continue-on-error: true
         uses: dorny/test-reporter@v1
         if: success() || failure()
         with:
-          name: Tests Report Chrome_Linux
-          path: 'target/surefire-reports/TEST-TestSuite.xml'
+          name: Tests Report
+          path: 'target/surefire-reports/TEST-*.xml'
           reporter: java-junit
