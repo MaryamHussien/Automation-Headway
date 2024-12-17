@@ -31,6 +31,15 @@ jobs:
       - name: Execute Tests
         run: mvn test "-Dbroswer=edge" "-Dheadless=false" "-Dtest=${{ github.event.inputs.testsPath }}"
 
+      - name: Allure Report
+        run: mvn allure:report
+
+      - name: Upload Allure Report as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Windows_Edge
+          path: target/site/allure-maven-plugin/index.html
+
       - name: Publish Report
         continue-on-error: true
         uses: dorny/test-reporter@v1
@@ -62,6 +71,15 @@ jobs:
 
       - name: Execute Tests
         run: mvn test "-Dbroswer=chrome" "-Dheadless=headless" "-Dtest=${{ github.event.inputs.testsPath }}"
+
+      - name: Allure Report
+        run: mvn allure:report
+
+      - name: Upload Allure Report as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Ubuntu_Chrome
+          path: target/site/allure-maven-plugin/index.html
 
       - name: Publish Report
         continue-on-error: true
