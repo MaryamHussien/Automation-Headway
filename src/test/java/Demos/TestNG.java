@@ -59,7 +59,7 @@ public class TestNG {
 
     @BeforeClass
     public void BeforeClass() {
-        driver = DriverFactory.initiateDriver(System.getProperty("browserName"), System.getProperty("headless"),true);
+        driver = DriverFactory.initiateDriver(System.getProperty("browserName"), System.getProperty("headless"), true);
         js = (JavascriptExecutor) driver;
         //maximize
         driver.manage().window().maximize();
@@ -69,11 +69,6 @@ public class TestNG {
     public void AfterClass() {
         driver.quit();
     }
-
-    /*@AfterMethod
-    public void AfterMethod(){
-        driver.close();
-    }*/
 
     //Methods
     private void Navigate() {

@@ -37,7 +37,6 @@ public class DriverFactory {
                 driver = new EdgeDriver();
             }
         }
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         if(maximize){
             System.out.println("Maximizing Window, The window size is: "+ driver.manage().window().getSize());
             driver.manage().window().maximize();
