@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import utilities.DriverFactory;
 
 public class TestNG {
 
@@ -58,7 +59,7 @@ public class TestNG {
 
     @BeforeClass
     public void BeforeClass() {
-        driver = new ChromeDriver();
+        driver = DriverFactory.initiateDriver(System.getProperty("browserName"), System.getProperty("headless"),true);
         js = (JavascriptExecutor) driver;
         //maximize
         driver.manage().window().maximize();

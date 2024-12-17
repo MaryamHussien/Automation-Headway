@@ -60,7 +60,7 @@ public class PageObjectModelTests {
     @BeforeClass
     public void BeforeClass() {
         framework.engine.PropertiesReader.loadProperties();
-        driver = DriverFactory.initiateDriver(System.getProperty("browserName"), true);
+        driver = DriverFactory.initiateDriver(System.getProperty("browserName"), System.getProperty("headless"),true);
         js = (JavascriptExecutor) driver;
         jsonFileManager = new JsonFileManager("src/test/resources/TestDataJsonFiles/RegisterTestsJsonFile.json");
     }
