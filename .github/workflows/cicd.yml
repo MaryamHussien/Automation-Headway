@@ -7,13 +7,13 @@ on:
         description: 'Path to Tests to be Executed'
         default: ''
 
-schedules:
-  - cron: '30 7 * * *'
-    displayName: Daily 7:30 AM build
-    branches:
-      include:
-        - addingconfg
-        - main
+  schedules:
+    - cron: '30 7 * * *'
+      displayName: Daily 7:30 AM build
+      branches:
+        include:
+          - addingconfg
+          - main
 
 jobs:
   E2E_Windows_Edge_Test:
