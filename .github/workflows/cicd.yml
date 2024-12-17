@@ -6,7 +6,11 @@ on:
       - main
 
   schedule:
-    - cron: '40 7 * * *'
+    - cron: '55 7 * * *'
+      displayName: Everyday check
+      branches:
+        include:
+          - main
 
   workflow_dispatch:
     inputs:
