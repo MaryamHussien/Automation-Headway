@@ -18,8 +18,8 @@ public class DriverFactory {
                 System.out.println("Initializing chrome driver" + System.getProperty("os.name"));
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--headless=new");
-                //chromeOptions.addArguments("--no-sandbox");
-                //chromeOptions.addArguments("--disable-dev-shm-usage");
+                chromeOptions.addArguments("--no-sandbox");
+                chromeOptions.addArguments("--disable-dev-shm-usage");
                 driver = new ChromeDriver(chromeOptions);
             }
             else if(browserName.equalsIgnoreCase("edge")){
