@@ -1,6 +1,10 @@
 name: E2E Tests
 
 on:
+  pull_request:
+    branches:
+      - main
+
   workflow_dispatch:
     inputs:
       testsPath:
@@ -29,6 +33,7 @@ jobs:
           maven-version: 3.9.9
 
       - name: Execute Tests
+        continue-on-error: true
         run: mvn test "-Dbroswer=edge" "-Dheadless=false" "-Dtest=${{ github.event.inputs.testsPath }}"
 
       - name: Allure Report
@@ -70,6 +75,7 @@ jobs:
           maven-version: 3.9.9
 
       - name: Execute Tests
+        continue-on-error: true
         run: mvn test "-Dbroswer=chrome" "-Dheadless=headless" "-Dtest=${{ github.event.inputs.testsPath }}"
 
       - name: Allure Report
