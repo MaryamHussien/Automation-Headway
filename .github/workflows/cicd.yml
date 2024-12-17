@@ -5,8 +5,16 @@ on:
     branches:
       - main
 
-  schedule:
-    - cron: '00 9 * * *'
+  trigger:
+    none
+
+  schedules:
+    - cron: '10 11 * * Mon,Tue,Wed,Thu,Fri'
+      displayName: Daily 1110 AM Run
+      branches:
+        include:
+          - main
+      always: true
 
   workflow_dispatch:
     inputs:
