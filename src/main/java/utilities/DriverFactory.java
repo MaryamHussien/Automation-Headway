@@ -17,14 +17,12 @@ public class DriverFactory {
             if (browserName.equalsIgnoreCase("chrome")){
                 System.out.println("Initializing chrome driver" + System.getProperty("os.name"));
                 ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--headless=new");
-                chromeOptions.addArguments("--no-sandbox");
-                chromeOptions.addArguments("--disable-dev-shm-usage");
+                chromeOptions.addArguments("--headless");
                 driver = new ChromeDriver(chromeOptions);
             }
             else if(browserName.equalsIgnoreCase("edge")){
                 EdgeOptions edgeOptions = new EdgeOptions();
-                edgeOptions.addArguments("--headless=new");
+                edgeOptions.addArguments("--headless");
                 System.out.println("Initializing edge driver" + System.getProperty("os.name"));
                 driver = new EdgeDriver(edgeOptions);
             }
